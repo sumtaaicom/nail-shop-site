@@ -148,6 +148,17 @@
     .monthly .meta { font-weight: 600; color: var(--accent-dark); font-variant-numeric: tabular-nums; }
     .monthly .btn { width: 100%; }
     .monthly .small { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+    /* 이번 달 한정 할인 띠 */
+    .sale {
+      margin: 0 0 22px; padding: 18px 20px; text-align: center;
+      background: var(--soft); border: 1px dashed var(--accent); border-radius: 22px;
+    }
+    .sale .badge {
+      display: inline-block; margin-bottom: 6px; padding: 2px 12px; border-radius: 999px;
+      background: var(--accent-dark); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .04em;
+    }
+    .sale strong { display: block; font-family: var(--serif); font-size: 21px; line-height: 1.45; color: var(--accent-dark); }
+    .sale p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
 
     /* 디자인 갤러리 */
     .mood { margin-bottom: 32px; }
@@ -353,6 +364,13 @@
     <section id="monthly">
       <div class="wrap">
         <p class="eyebrow">10월의 아트</p>
+        <!-- 이번 달 한정 아트 네일 할인 (10월이 끝나면 이 상자를 지우거나 고쳐요) -->
+        <!-- TODO: 할인율(또는 할인 금액), 할인 대상 메뉴(이달의 아트만? 자유 아트·풋 아트도?), 첫 방문 10% 할인과 함께 받을 수 있는지, 10월 안에 "예약"만 하면 되는지 "시술"까지 받아야 하는지 원장님께 확인 -->
+        <div class="sale">
+          <span class="badge">10월 한 달만</span>
+          <strong>아트 네일 [확인 필요] 할인</strong>
+          <p>할인 대상: [확인 필요]</p>
+        </div>
         <div class="monthly">
           <!-- 사진 2: images/monthly.jpg (이번 달 샘플 디자인) -->
           <div class="photo r45"><img src="images/web/monthly-480.webp" srcset="images/web/monthly-480.webp 480w, images/web/monthly-800.webp 800w" sizes="(min-width: 768px) 340px, calc(100vw - 44px)" width="480" height="600" alt="연보라와 흰색, 은색 글리터를 섞은 네일" loading="lazy" decoding="async"></div>
@@ -595,6 +613,11 @@
           <details>
             <summary>타샵 젤을 하고 있어요.</summary>
             <p>제거 비용은 10,000원이에요. 예약할 때 미리 알려 주세요.</p>
+          </details>
+          <details>
+            <summary>젤 제거만 해도 되나요?</summary>
+            <!-- TODO: 제거만 예약 가능한지, 제거만 할 때 가격(메뉴의 10,000원과 같은지)과 소요 시간을 원장님께 확인 -->
+            <p>[확인 필요] 제거만 받으실 때 비용은 [확인 필요], 시간은 약 [ ]이에요. 예약할 때 “제거만”이라고 남겨 주세요.</p>
           </details>
           <details>
             <summary>친구랑 같이 가도 되나요?</summary>
