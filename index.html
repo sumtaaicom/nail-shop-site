@@ -107,6 +107,8 @@
     .hero .btns { display: grid; grid-template-columns: 1fr 1fr; max-width: 420px; margin: 0 auto; }
     .hero .btns .btn { padding: 0 8px; font-size: 14px; white-space: nowrap; }
     .offer { margin: 14px 0 4px; font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--accent-dark); }
+    .offer + .offer { margin-top: 0; }
+    .offer a { text-decoration: none; border-bottom: 1px solid var(--blush); }
     .hero .hint { margin: 0 auto; max-width: 26em; font-size: 13px; color: var(--muted); }
 
     .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -356,6 +358,8 @@
           <a class="btn" href="https://pf.kakao.com/" target="_blank" rel="noopener">카톡으로 디자인 상담</a>
         </div>
         <p class="offer">첫 방문 손님 10% 할인</p>
+        <!-- 10월 한정 문구: 11월 1일에 지워요 -->
+        <p class="offer"><a href="#monthly">10월의 아트 20% 할인 (10월 31일 시술까지)</a></p>
         <p class="hint">저장해 둔 디자인 캡처를 카톡으로 보내 주시면 가능 여부와 가격을 알려 드려요.</p>
       </div>
     </div>
@@ -364,12 +368,11 @@
     <section id="monthly">
       <div class="wrap">
         <p class="eyebrow">10월의 아트</p>
-        <!-- 이번 달 한정 아트 네일 할인 (10월이 끝나면 이 상자를 지우거나 고쳐요) -->
-        <!-- TODO: 할인율(또는 할인 금액), 할인 대상 메뉴(이달의 아트만? 자유 아트·풋 아트도?), 첫 방문 10% 할인과 함께 받을 수 있는지, 10월 안에 "예약"만 하면 되는지 "시술"까지 받아야 하는지 원장님께 확인 -->
+        <!-- 이번 달 한정 할인 (11월 1일에 이 상자와 첫 화면의 10월 할인 문구를 함께 지워요) -->
         <div class="sale">
           <span class="badge">10월 한 달만</span>
-          <strong>아트 네일 [확인 필요] 할인</strong>
-          <p>할인 대상: [확인 필요]</p>
+          <strong>이달의 아트 20% 할인</strong>
+          <p>10월 31일까지 시술받는 분만 해당돼요. 첫 방문 10% 할인과 함께 받을 수는 없어요.</p>
         </div>
         <div class="monthly">
           <!-- 사진 2: images/monthly.jpg (이번 달 샘플 디자인) -->
@@ -616,8 +619,7 @@
           </details>
           <details>
             <summary>젤 제거만 해도 되나요?</summary>
-            <!-- TODO: 제거만 예약 가능한지, 제거만 할 때 가격(메뉴의 10,000원과 같은지)과 소요 시간을 원장님께 확인 -->
-            <p>[확인 필요] 제거만 받으실 때 비용은 [확인 필요], 시간은 약 [ ]이에요. 예약할 때 “제거만”이라고 남겨 주세요.</p>
+            <p>네, 제거만 받으셔도 돼요. 비용은 15,000원, 시간은 약 30분이에요. 예약할 때 “제거만”이라고 남겨 주세요.</p>
           </details>
           <details>
             <summary>친구랑 같이 가도 되나요?</summary>
