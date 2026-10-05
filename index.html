@@ -230,6 +230,54 @@
     .channel small { color: var(--muted); font-size: 13px; }
     .channel .arrow { margin-left: auto; color: var(--accent); font-size: 20px; }
 
+    /* 예약 문의 폼 */
+    .inquiry { margin-bottom: 20px; }
+    .inquiry h3 { font-family: var(--serif); font-size: 19px; line-height: 1.45; }
+    .inquiry .lead { margin: 0 0 18px; font-size: 15px; }
+    .form { display: grid; gap: 16px; }
+    .form[hidden] { display: none; }
+    .field { display: grid; gap: 6px; margin: 0; padding: 0; border: 0; min-width: 0; }
+    .field > label, .field > legend { padding: 0; font-size: 15px; font-weight: 600; }
+    .field .opt { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .field .help { margin: 0; font-size: 13px; color: var(--muted); }
+    .form input[type="text"], .form input[type="tel"], .form input[type="date"], .form select, .form textarea {
+      width: 100%; min-height: 48px; padding: 10px 16px; border-radius: 16px;
+      border: 1px solid var(--line); background: var(--bg); color: var(--text);
+      font: inherit; font-size: 16px; line-height: 1.5; -webkit-appearance: none; appearance: none;
+    }
+    .form select {
+      padding-right: 40px;
+      background-image: linear-gradient(45deg, transparent 50%, var(--accent-dark) 50%), linear-gradient(135deg, var(--accent-dark) 50%, transparent 50%);
+      background-position: right 20px center, right 15px center;
+      background-size: 5px 5px; background-repeat: no-repeat;
+    }
+    .form textarea { min-height: 104px; resize: vertical; }
+    .form ::placeholder { color: var(--muted); opacity: .7; }
+    .form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+    .row2 { display: grid; gap: 16px; }
+    /* 젤 있음/없음: 알약 모양 선택 버튼 */
+    .pills { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .pills label { position: relative; }
+    .pills input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .pills span {
+      display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 10px;
+      border: 1px solid var(--line); border-radius: 999px; background: var(--bg);
+      font-size: 15px; color: var(--muted); cursor: pointer; white-space: nowrap;
+    }
+    .pills input:checked + span { background: var(--blush); border-color: var(--accent); color: #6e3b43; font-weight: 600; }
+    .pills input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .agree { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); cursor: pointer; }
+    .agree input { flex: none; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--accent-dark); }
+    .form .btn { width: 100%; border: 0; font-family: inherit; cursor: pointer; }
+    .form .btn:disabled { opacity: .6; cursor: default; }
+    /* 스팸 방지용 숨은 칸: 사람 눈에는 안 보여요 */
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form-msg { margin: 0; font-size: 14px; color: var(--accent-dark); }
+    .form-msg:empty { display: none; }
+    .done { text-align: center; padding: 12px 0 4px; }
+    .done strong { display: block; font-family: var(--serif); font-size: 21px; color: var(--accent-dark); margin-bottom: 4px; }
+    .done p { margin: 0; color: var(--muted); font-size: 15px; }
+
     /* 접는 상자 */
     details { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; }
     details + details { margin-top: 8px; }
@@ -316,6 +364,8 @@
       .points { grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
       .point { flex-direction: column; }
       .channels { grid-template-columns: 1fr 1fr; }
+      .inquiry { padding: 32px; }
+      .row2 { grid-template-columns: 1fr 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -542,6 +592,84 @@
           </a>
         </div>
 
+        <!-- 예약 문의 폼: Web3Forms로 보내요. 받은 문의는 Web3Forms에 등록한 이메일로 와요 -->
+        <div class="card inquiry" id="inquiry">
+          <h3>네이버 예약이 어려우면 여기에 남겨 주세요</h3>
+          <p class="lead">확인하는 대로 남겨 주신 연락처로 연락드려요.</p>
+          <form class="form" id="inquiry-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- 홈페이지에 공개해도 되는 접근 키예요 -->
+            <input type="hidden" name="access_key" value="8806915d-2290-4fe1-bbc9-aa515ee576e0">
+            <input type="hidden" name="subject" value="[도담 네일] 홈페이지 예약 문의">
+            <input type="hidden" name="from_name" value="도담 네일 홈페이지">
+            <!-- 스팸 방지: 사람은 못 보는 칸이라, 여기에 체크가 되어 있으면 로봇이에요 -->
+            <div class="hp" aria-hidden="true">
+              <label>비워 두세요 <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <div class="row2">
+              <div class="field">
+                <label for="f-name">이름</label>
+                <input type="text" id="f-name" name="이름" autocomplete="name" required maxlength="30">
+              </div>
+              <div class="field">
+                <label for="f-phone">연락처</label>
+                <input type="tel" id="f-phone" name="연락처" autocomplete="tel" inputmode="tel" placeholder="010-0000-0000" required maxlength="20" pattern="[0-9\-\s+]{9,20}" title="숫자로 적어 주세요">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-menu">원하는 시술</label>
+              <select id="f-menu" name="원하는 시술" required>
+                <option value="">골라 주세요</option>
+                <option>원컬러 젤</option>
+                <option>그라데이션 · 프렌치</option>
+                <option>이달의 아트</option>
+                <option>자유 아트</option>
+                <option>풋 원컬러 젤</option>
+                <option>풋 아트</option>
+                <option>손 케어 단독</option>
+                <option>젤 제거만</option>
+                <option>아직 모르겠어요 (상담 원해요)</option>
+              </select>
+            </div>
+
+            <div class="row2">
+              <div class="field">
+                <label for="f-date">희망 날짜</label>
+                <input type="date" id="f-date" name="희망 날짜" required>
+              </div>
+              <div class="field">
+                <label for="f-time">희망 시간</label>
+                <input type="text" id="f-time" name="희망 시간" placeholder="예: 오후 2시, 퇴근 후" required maxlength="40">
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>지금 손톱 상태</legend>
+              <div class="pills">
+                <label><input type="radio" name="지금 손톱 상태" value="젤 없음" required><span>젤 없음</span></label>
+                <label><input type="radio" name="지금 손톱 상태" value="젤 있음"><span>젤 있음</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="f-design">참고할 디자인 <span class="opt">(선택)</span></label>
+              <textarea id="f-design" name="참고할 디자인" maxlength="500" placeholder="예: 연핑크 바탕에 은색 글리터, 짧은 손톱"></textarea>
+              <p class="help">사진은 여기에 올릴 수 없어요. 카톡으로 보내 주시면 함께 확인할게요.</p>
+            </div>
+
+            <!-- TODO: 문의 내용 보관 기간을 원장님께 확인해서 [확인 필요]를 바꿔 주세요 -->
+            <label class="agree"><input type="checkbox" name="개인정보 동의" value="동의함" required><span>예약 문의 답변을 위해 이름과 연락처를 받는 데 동의해요. 보관 기간: [확인 필요]</span></label>
+
+            <button class="btn primary" type="submit">문의 남기기</button>
+            <p class="form-msg" role="alert"></p>
+          </form>
+          <div class="done" id="inquiry-done" role="status" tabindex="-1" hidden>
+            <strong>문의가 접수됐어요</strong>
+            <p>확인하는 대로 남겨 주신 연락처로 연락드릴게요.</p>
+          </div>
+        </div>
+
         <details class="policy">
           <summary>예약 전 확인해 주세요</summary>
           <ul class="note">
@@ -675,6 +803,56 @@
     <a href="https://www.instagram.com/" target="_blank" rel="noopener">인스타</a>
     <a class="primary" href="https://booking.naver.com/" target="_blank" rel="noopener">네이버 예약</a>
   </nav>
+
+  <script>
+    // 예약 문의 폼: 페이지를 떠나지 않고 보내고, 보내면 '문의가 접수됐어요'를 보여 줘요
+    (function () {
+      var form = document.getElementById('inquiry-form');
+      var done = document.getElementById('inquiry-done');
+      var msg = form.querySelector('.form-msg');
+      var btn = form.querySelector('button[type="submit"]');
+      var openedAt = Date.now();
+
+      // 지난 날짜는 고를 수 없게
+      var d = new Date();
+      d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+      form.querySelector('#f-date').min = d.toISOString().slice(0, 10);
+
+      function showDone() {
+        form.hidden = true;
+        done.hidden = false;
+        done.focus();
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.textContent = '';
+        // 스팸 방지: 숨은 칸이 체크됐거나, 열자마자 3초 안에 보내면 로봇으로 보고 실제로는 보내지 않아요
+        if (form.botcheck.checked || Date.now() - openedAt < 3000) { showDone(); return; }
+
+        btn.disabled = true;
+        btn.textContent = '보내는 중...';
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (!data.success) throw new Error(data.message);
+            form.reset();
+            showDone();
+          })
+          .catch(function () {
+            msg.textContent = '보내지 못했어요. 잠시 후 다시 눌러 주시거나 카톡으로 문의해 주세요.';
+          })
+          .then(function () {
+            btn.disabled = false;
+            btn.textContent = '문의 남기기';
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>
