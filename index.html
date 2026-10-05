@@ -107,6 +107,8 @@
     .hero .btns { display: grid; grid-template-columns: 1fr 1fr; max-width: 420px; margin: 0 auto; }
     .hero .btns .btn { padding: 0 8px; font-size: 14px; white-space: nowrap; }
     .offer { margin: 14px 0 4px; font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--accent-dark); }
+    .offer + .offer { margin-top: 0; }
+    .offer a { text-decoration: none; border-bottom: 1px solid var(--blush); }
     .hero .hint { margin: 0 auto; max-width: 26em; font-size: 13px; color: var(--muted); }
 
     .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -148,6 +150,17 @@
     .monthly .meta { font-weight: 600; color: var(--accent-dark); font-variant-numeric: tabular-nums; }
     .monthly .btn { width: 100%; }
     .monthly .small { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+    /* 이번 달 한정 할인 띠 */
+    .sale {
+      margin: 0 0 22px; padding: 18px 20px; text-align: center;
+      background: var(--soft); border: 1px dashed var(--accent); border-radius: 22px;
+    }
+    .sale .badge {
+      display: inline-block; margin-bottom: 6px; padding: 2px 12px; border-radius: 999px;
+      background: var(--accent-dark); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .04em;
+    }
+    .sale strong { display: block; font-family: var(--serif); font-size: 21px; line-height: 1.45; color: var(--accent-dark); }
+    .sale p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
 
     /* 디자인 갤러리 */
     .mood { margin-bottom: 32px; }
@@ -345,6 +358,8 @@
           <a class="btn" href="https://pf.kakao.com/" target="_blank" rel="noopener">카톡으로 디자인 상담</a>
         </div>
         <p class="offer">첫 방문 손님 10% 할인</p>
+        <!-- 10월 한정 문구: 11월 1일에 지워요 -->
+        <p class="offer"><a href="#monthly">10월의 아트 20% 할인 (10월 31일 시술까지)</a></p>
         <p class="hint">저장해 둔 디자인 캡처를 카톡으로 보내 주시면 가능 여부와 가격을 알려 드려요.</p>
       </div>
     </div>
@@ -353,6 +368,12 @@
     <section id="monthly">
       <div class="wrap">
         <p class="eyebrow">10월의 아트</p>
+        <!-- 이번 달 한정 할인 (11월 1일에 이 상자와 첫 화면의 10월 할인 문구를 함께 지워요) -->
+        <div class="sale">
+          <span class="badge">10월 한 달만</span>
+          <strong>이달의 아트 20% 할인</strong>
+          <p>10월 31일까지 시술받는 분만 해당돼요. 첫 방문 10% 할인과 함께 받을 수는 없어요.</p>
+        </div>
         <div class="monthly">
           <!-- 사진 2: images/monthly.jpg (이번 달 샘플 디자인) -->
           <div class="photo r45"><img src="images/web/monthly-480.webp" srcset="images/web/monthly-480.webp 480w, images/web/monthly-800.webp 800w" sizes="(min-width: 768px) 340px, calc(100vw - 44px)" width="480" height="600" alt="연보라와 흰색, 은색 글리터를 섞은 네일" loading="lazy" decoding="async"></div>
@@ -595,6 +616,10 @@
           <details>
             <summary>타샵 젤을 하고 있어요.</summary>
             <p>제거 비용은 10,000원이에요. 예약할 때 미리 알려 주세요.</p>
+          </details>
+          <details>
+            <summary>젤 제거만 해도 되나요?</summary>
+            <p>네, 제거만 받으셔도 돼요. 비용은 15,000원, 시간은 약 30분이에요. 예약할 때 “제거만”이라고 남겨 주세요.</p>
           </details>
           <details>
             <summary>친구랑 같이 가도 되나요?</summary>
