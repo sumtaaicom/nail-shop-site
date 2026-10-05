@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-# TODO: 홈페이지 주소가 정해지면 [홈페이지 주소]를 실제 주소로 바꿔 주세요
-Sitemap: https://[홈페이지 주소]/sitemap.xml
+# 홈페이지 주소가 바뀌면 아래 주소도 바꿔 주세요
+Sitemap: https://nail-shop-site.vercel.app/sitemap.xml
