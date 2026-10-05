@@ -12,3 +12,4 @@
 - daily-3.jpg — Ari Kurniawan / https://images.unsplash.com/photo-1754799670410-b282791342c3 (흰색과 분홍색 하트 디자인 손톱을 가진 여성의 손)
 - season-3.jpg — allison christine / https://images.unsplash.com/photo-1587729927069-ef3b7a5ab9b4 (검은 색 긴 소매 셔츠를 입은 사람이 검은 색 직물을 들고 있습니다.)
 - daily-2.jpg — Jenn Causing / https://images.unsplash.com/photo-1696342003838-4a8f9f36588c (흰색 표면에 6가지 색상의 매니큐어)
+- og.jpg — 한별 정 / https://images.unsplash.com/photo-1688583417770-ff6cc18071dc (hero.jpg를 카톡·인스타 공유 미리보기 크기 1200×630으로 가운데를 자른 것)

@@ -3,18 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>도담 네일 | 성수동 1인 네일샵</title>
-  <meta name="description" content="성수역 5분, 8년 차 원장이 한 분만 모시는 1:1 프라이빗 네일샵 도담 네일. 첫 방문 10% 할인. 디자인, 가격과 소요 시간, 예약 방법, 오시는 길 안내.">
+  <!-- 검색 결과에 뜨는 제목과 설명: '성수동 네일샵', '성수 젤네일'로 찾는 손님을 위해 앞쪽에 넣었어요 -->
+  <title>도담 네일 | 성수동 네일샵 · 성수역 1:1 젤네일</title>
+  <meta name="description" content="성수동 네일샵 도담 네일. 성수역 5분, 8년 차 원장이 한 분만 모시는 1:1 프라이빗 젤네일. 첫 방문 10% 할인. 디자인, 가격과 소요 시간, 예약 방법, 오시는 길 안내.">
   <meta name="theme-color" content="#fdf8f5">
-  <meta property="og:title" content="도담 네일 | 성수동 1인 네일샵">
-  <meta property="og:description" content="인스타에서 본 그 디자인, 그대로 손끝에. 성수역 5분 1:1 프라이빗 네일 · 첫 방문 10% 할인">
+  <!-- 홈페이지 주소: 주소가 바뀌면 이 파일 5곳(canonical, og:url, og:image, 맨 아래 가게 정보의 url·image)과 robots.txt, sitemap.xml을 함께 바꿔 주세요 -->
+  <link rel="canonical" href="https://nail-shop-site.vercel.app/">
+  <!-- 네이버 서치어드바이저·구글 서치 콘솔 소유 확인: 받은 코드를 넣고 그 줄 앞뒤의 주석 표시를 지워 주세요 -->
+  <!-- <meta name="naver-site-verification" content="[네이버에서 받은 코드]"> -->
+  <!-- <meta name="google-site-verification" content="[구글에서 받은 코드]"> -->
+
+  <!-- 카톡·인스타로 링크를 보낼 때 뜨는 미리보기 -->
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/og.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d99ca1'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='white' font-family='sans-serif'%3E도%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <meta property="og:site_name" content="도담 네일">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://nail-shop-site.vercel.app/">
+  <meta property="og:title" content="도담 네일 | 성수동 1:1 프라이빗 네일샵">
+  <meta property="og:description" content="인스타에서 본 그 디자인, 그대로 손끝에. 성수역 5분 1:1 프라이빗 네일 · 첫 방문 10% 할인">
+  <!-- 미리보기 사진: images/og.jpg (1200×630). 지금은 첫 화면 사진을 잘라 만든 임시 사진이에요 -->
+  <meta property="og:image" content="https://nail-shop-site.vercel.app/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="파스텔 원컬러 젤 네일을 한 손">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 주소창·검색 결과·휴대폰 홈 화면에 뜨는 작은 아이콘 -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- 글꼴: 화면에 실제로 나오는 글자 조각만 받아서 휴대폰에서 빨리 열려요. 글꼴이 오기 전에는 기본 글꼴로 먼저 보여 줘요 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&display=swap">
+  </noscript>
   <style>
     /* 디자인: 부드럽고 여리여리한 핑크·베이지. 색은 아래 :root 에서 한꺼번에 바꿀 수 있어요 */
     :root {
@@ -24,10 +51,11 @@
       --beige: #f4ebe2;
       --blush: #f3d2d3;
       --text: #5a4441;
-      --muted: #8a736f;
+      /* 글씨 색은 배경과 충분히 대비되게(읽기 쉬운 기준 4.5:1 이상) 맞췄어요 */
+      --muted: #76605c;
       --line: #f0e1dc;
       --accent: #d99ca1;
-      --accent-dark: #9c5862;
+      --accent-dark: #97545e;
       --shadow: 0 10px 30px rgba(196, 128, 136, .10);
       --radius: 26px;
       --max: 720px;
@@ -40,7 +68,7 @@
     html { scroll-behavior: smooth; scroll-padding-top: 64px; -webkit-text-size-adjust: 100%; }
     body {
       margin: 0;
-      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
       background: var(--bg);
       color: var(--text);
       font-size: 16px;
@@ -189,7 +217,7 @@
     /* 메뉴 */
     .menu-group { margin-bottom: 16px; }
     .menu-group h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-family: var(--serif); }
-    .menu-group .tag { font-family: "Pretendard", sans-serif; font-size: 12px; font-weight: 600; color: var(--accent-dark); background: var(--soft); padding: 2px 9px; border-radius: 999px; }
+    .menu-group .tag { font-family: "Pretendard Variable", "Pretendard", sans-serif; font-size: 12px; font-weight: 600; color: var(--accent-dark); background: var(--soft); padding: 2px 9px; border-radius: 999px; }
     .menu-list { list-style: none; margin: 0; padding: 0; }
     .menu-list li {
       display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
@@ -252,7 +280,7 @@
       background-size: 5px 5px; background-repeat: no-repeat;
     }
     .form textarea { min-height: 104px; resize: vertical; }
-    .form ::placeholder { color: var(--muted); opacity: .7; }
+    .form ::placeholder { color: var(--muted); opacity: 1; }
     .form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; border-color: transparent; }
     .row2 { display: grid; gap: 16px; }
     /* 젤 있음/없음: 알약 모양 선택 버튼 */
@@ -313,7 +341,7 @@
     footer { padding: 36px 0 44px; text-align: center; color: var(--muted); font-size: 13px; background: var(--soft); }
     footer p { margin: 2px 0; }
     footer strong { font-family: var(--serif); color: var(--text); }
-    footer .credit { margin-top: 12px; font-size: 11px; line-height: 1.5; }
+    footer .credit { margin-top: 12px; font-size: 12px; line-height: 1.5; }
 
     /* 휴대폰 하단 고정 버튼 */
     .bottom-bar {
@@ -373,6 +401,32 @@
       .btn { transition: none; }
     }
   </style>
+  <!-- 검색엔진용 가게 정보(화면에는 안 보여요). 주소·전화·영업시간이 바뀌면 여기도 같이 바꿔 주세요 -->
+  <!-- TODO: 실제 인스타그램 주소가 정해지면 "sameAs": ["https://www.instagram.com/아이디/"] 를 추가해 주세요 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NailSalon",
+    "name": "도담 네일",
+    "description": "성수역 5분, 원장 1인이 한 분만 모시는 1:1 프라이빗 젤네일샵",
+    "url": "https://nail-shop-site.vercel.app/",
+    "image": "https://nail-shop-site.vercel.app/images/og.jpg",
+    "telephone": "010-0000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "성수동2가 ○○길 00, 2층",
+      "addressLocality": "성동구",
+      "addressRegion": "서울",
+      "addressCountry": "KR"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "11:00",
+      "closes": "20:00"
+    }]
+  }
+  </script>
 </head>
 <body>
 
@@ -395,7 +449,7 @@
       <div class="wrap">
         <!-- 사진 1: images/hero.jpg (대표 디자인 손 클로즈업) -->
         <div class="photo"><img src="images/web/hero-480.webp" srcset="images/web/hero-480.webp 480w, images/web/hero-840.webp 840w" sizes="(min-width: 768px) 420px, 340px" width="480" height="360" alt="연보라·연두·베이지 파스텔 원컬러 젤 네일을 한 손" fetchpriority="high" decoding="async"></div>
-        <span class="badge">성수역 5분 · 1:1 프라이빗 네일</span>
+        <span class="badge">성수동 젤네일 · 성수역 5분 · 1:1 프라이빗</span>
         <h1>인스타에서 본 그 디자인,<br>그대로 손끝에.</h1>
         <p class="sub">8년 차 원장 박서연이 상담부터 아트까지 한&nbsp;분만 모십니다. 퇴근길에 조용히 들러 쉬어 가세요.</p>
         <ul class="chips">

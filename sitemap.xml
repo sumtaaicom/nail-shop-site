@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 검색엔진에 알려 주는 페이지 목록. 홈페이지 주소가 바뀌면 loc 주소도 바꿔요. 홈페이지를 크게 고치면 lastmod 날짜도 바꿔요 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://nail-shop-site.vercel.app/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+</urlset>

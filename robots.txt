@@ -1,0 +1,6 @@
+# 검색엔진 로봇 안내: 모든 검색엔진이 홈페이지 전체를 볼 수 있어요
+User-agent: *
+Allow: /
+
+# 홈페이지 주소가 바뀌면 아래 주소도 바꿔 주세요
+Sitemap: https://nail-shop-site.vercel.app/sitemap.xml
