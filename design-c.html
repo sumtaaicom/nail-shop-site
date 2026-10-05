@@ -1,0 +1,643 @@
+<!doctype html>
+<!-- 디자인 시안 C · 성수 블랙: 본문은 index.html과 같고, <head>의 글꼴·스타일만 다릅니다. -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>도담 네일 | 성수동 1인 네일샵</title>
+  <meta name="description" content="성수역 5분, 8년 차 원장이 한 분만 모시는 1:1 프라이빗 네일샵 도담 네일. 첫 방문 10% 할인. 디자인, 가격과 소요 시간, 예약 방법, 오시는 길 안내.">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta property="og:title" content="도담 네일 | 성수동 1인 네일샵">
+  <meta property="og:description" content="인스타에서 본 그 디자인, 그대로 손끝에. 성수역 5분 1:1 프라이빗 네일 · 첫 방문 10% 할인">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d0d0d'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23e5683f' font-family='sans-serif'%3E도%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&display=swap">
+  <style>
+    /* 시안 C — 성수동 감성의 세련된 블랙 */
+    :root {
+      color-scheme: dark;
+      --bg: #0d0d0d;
+      --surface: #151515;
+      --soft: #1e1e1e;
+      --text: #f2efea;
+      --muted: #a39e97;
+      --line: #2b2b2b;
+      --accent: #e5683f;
+      --accent-dark: #e5683f;
+      --cream: #f2efea;
+      --radius: 4px;
+      --max: 760px;
+      --bar-h: 64px;
+      --grotesk: "Space Grotesk", "Pretendard", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+      word-break: keep-all;
+      padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom));
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* 상단 헤더 */
+    .header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(13, 13, 13, .88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
+    .logo { flex: none; font-weight: 800; font-size: 18px; letter-spacing: -.03em; text-decoration: none; white-space: nowrap; }
+    .logo span { color: var(--accent); }
+    .nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex: none; text-decoration: none; font-size: 14px; color: var(--muted);
+      padding: 8px 7px; border-radius: var(--radius);
+    }
+    .nav a:hover, .nav a:focus-visible { background: var(--soft); color: var(--text); }
+
+    /* 사진 자리: 콘크리트 질감 */
+    .photo {
+      position: relative; overflow: hidden; border-radius: var(--radius);
+      background:
+        radial-gradient(120% 80% at 20% 0%, rgba(255, 255, 255, .06), transparent 60%),
+        linear-gradient(160deg, #1c1c1c, #121212);
+      display: grid; place-items: center;
+      aspect-ratio: 1 / 1;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo > span { padding: 8px; text-align: center; font-size: 12px; line-height: 1.4; color: #7c7770; letter-spacing: .02em; }
+    .photo.r45 { aspect-ratio: 4 / 5; }
+    .photo.r32 { aspect-ratio: 3 / 2; }
+
+    /* 히어로: 큰 굵은 타이포 */
+    .hero { padding: 16px 0 52px; text-align: left; }
+    .hero .photo { aspect-ratio: 4 / 3; margin: 0 0 24px; }
+    .hero .badge {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--accent);
+      letter-spacing: .04em; margin-bottom: 14px;
+    }
+    .hero .badge::before { content: ""; width: 18px; height: 1px; background: currentColor; }
+    .hero h1 { font-size: clamp(24px, 7.4vw, 34px); font-weight: 800; line-height: 1.2; margin: 0 0 16px; letter-spacing: -.045em; }
+    .hero .sub { color: var(--muted); margin: 0 0 18px; max-width: 30em; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0 0 22px; padding: 0; }
+    .chips li { font-size: 12px; font-weight: 500; padding: 4px 10px; white-space: nowrap; border-radius: var(--radius); border: 1px solid #3a3a3a; color: #d6d2cc; }
+    .hero .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 460px; }
+    .hero .btns .btn { padding: 0 8px; font-size: 14px; white-space: nowrap; }
+    .offer { margin: 16px 0 4px; font-size: 14px; font-weight: 700; color: var(--accent); }
+    .hero .hint { margin: 0; max-width: 28em; font-size: 13px; color: var(--muted); }
+
+    .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      min-height: 50px; padding: 0 22px; border-radius: var(--radius);
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      border: 1px solid #4a4a4a; color: var(--text); background: transparent;
+      transition: background .15s, border-color .15s;
+    }
+    .btn:hover { border-color: var(--text); }
+    .btn.primary { background: var(--cream); border-color: var(--cream); color: #0d0d0d; }
+    .btn.primary:hover { background: #fff; }
+    .btn:active { transform: translateY(1px); }
+
+    /* 섹션 공통 */
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid var(--line); }
+    .eyebrow {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--grotesk); font-size: 12px; font-weight: 500; color: var(--accent);
+      letter-spacing: .18em; text-transform: uppercase; margin: 0 0 12px;
+    }
+    .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+    h2 { font-size: 28px; font-weight: 800; line-height: 1.25; margin: 0 0 22px; letter-spacing: -.04em; }
+    h3 { font-size: 17px; font-weight: 700; margin: 0 0 6px; letter-spacing: -.01em; }
+    .lead { color: var(--muted); margin: -8px 0 26px; font-size: 15px; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 20px;
+    }
+
+    /* 이달의 아트 */
+    .monthly { display: grid; gap: 20px; }
+    .monthly p { margin: 0 0 12px; }
+    .monthly .meta { font-family: var(--grotesk); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--text); }
+    .monthly .btn { width: 100%; }
+    .monthly .small { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+
+    /* 디자인 갤러리 */
+    .mood { margin-bottom: 32px; }
+    .mood-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; margin-bottom: 4px; }
+    .mood-head h3 { margin: 0; }
+    .mood-head .meta { font-family: var(--grotesk); font-size: 13px; font-weight: 500; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .mood > p { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .grid3 .photo { border-radius: 2px; }
+    .more { font-weight: 700; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+    /* 소개 */
+    .director { display: grid; grid-template-columns: 112px 1fr; gap: 18px; align-items: center; margin-bottom: 24px; }
+    .director p { margin: 0; color: #d6d2cc; }
+    .points { display: grid; gap: 1px; margin-top: 24px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .point { display: flex; gap: 14px; align-items: flex-start; background: var(--bg); padding: 18px; }
+    .point .ico {
+      flex: none; font-family: var(--grotesk); font-size: 22px; font-weight: 600; line-height: 1.1;
+      color: transparent; -webkit-text-stroke: 1px var(--accent); min-width: 32px;
+    }
+    .point p { margin: 0; color: var(--muted); font-size: 14px; }
+    .origin { margin: 24px 0 0; font-size: 13px; color: var(--muted); }
+
+    /* 메뉴 */
+    .menu-group { margin-bottom: 12px; }
+    .menu-group h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .menu-group .tag { font-size: 11px; font-weight: 700; color: #0d0d0d; background: var(--accent); padding: 1px 7px; border-radius: 2px; }
+    .menu-list { list-style: none; margin: 0; padding: 0; }
+    .menu-list li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      padding: 13px 0; border-bottom: 1px solid var(--line);
+    }
+    .menu-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .menu-list .name { font-weight: 600; }
+    .menu-list .desc { display: block; font-size: 13px; color: var(--muted); font-weight: 400; }
+    .menu-list .time { color: var(--accent); font-weight: 600; }
+    .menu-list .price { flex: none; font-family: var(--grotesk); font-weight: 500; font-variant-numeric: tabular-nums; }
+    .note { font-size: 14px; color: var(--muted); margin: 16px 0 0; padding-left: 0; list-style: none; }
+    .note li { position: relative; padding-left: 14px; margin-bottom: 4px; }
+    .note li::before { content: ""; position: absolute; left: 0; top: .7em; width: 5px; height: 1px; background: var(--accent); }
+    .note strong { color: var(--text); }
+
+    /* 예약 */
+    .steps { list-style: none; padding: 0; margin: 0 0 22px; counter-reset: step; display: grid; gap: 14px; }
+    .steps li { counter-increment: step; display: flex; gap: 14px; align-items: flex-start; }
+    .steps li::before {
+      content: counter(step, decimal-leading-zero); flex: none; width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--accent); color: var(--accent); font-family: var(--grotesk); font-weight: 500; font-size: 13px;
+      display: grid; place-items: center;
+    }
+    .steps p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .channels { display: grid; gap: 8px; margin-bottom: 20px; }
+    .channel {
+      display: flex; align-items: center; gap: 14px; text-decoration: none;
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px 18px; min-height: 72px; transition: border-color .15s;
+    }
+    .channel:hover { border-color: #555; }
+    .channel .ico { flex: none; width: 40px; height: 40px; border-radius: var(--radius); display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+    .channel .ico.naver { background: #03c75a; color: #fff; }
+    .channel .ico.kakao { background: #fee500; color: #3a1d1d; }
+    .channel .ico.tel { background: var(--soft); color: var(--text); font-size: 12px; border: 1px solid #333; }
+    .channel .ico.insta { background: linear-gradient(45deg, #f9b04a, #e1306c 55%, #8a3ab9); color: #fff; }
+    .channel strong { display: block; font-size: 16px; }
+    .channel small { color: var(--muted); font-size: 13px; }
+    .channel .arrow { margin-left: auto; color: var(--accent); font-size: 20px; }
+
+    /* 접는 상자 */
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    details + details { margin-top: 6px; }
+    summary {
+      list-style: none; cursor: pointer; padding: 16px 44px 16px 18px; position: relative;
+      font-weight: 600; min-height: 54px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: ""; position: absolute; right: 20px; top: 50%; width: 8px; height: 8px;
+      border-right: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent);
+      transform: translateY(-70%) rotate(45deg);
+    }
+    details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+    details > p, details > .note { margin: 0; padding: 0 18px 16px; }
+    details > p { color: var(--muted); font-size: 15px; }
+    .policy > .note { padding-left: 18px; }
+    .faq-list { margin-bottom: 32px; }
+    .contact-lead { margin-top: 0; }
+
+    /* 오시는 길 */
+    .entrance { margin-bottom: 8px; }
+    .caption { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+    .info { display: grid; gap: 0; margin: 0; }
+    .info div { display: grid; grid-template-columns: 76px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .info div:last-child { border-bottom: 0; }
+    .info dt { color: var(--muted); font-size: 13px; padding-top: 2px; }
+    .info dd { margin: 0; }
+    .info dd small { display: block; color: var(--muted); font-size: 13px; }
+    .map-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+    .map-btns .btn { min-height: 46px; font-size: 14px; padding: 0 12px; }
+
+    /* 하단 */
+    footer { padding: 36px 0 44px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+    footer p { margin: 2px 0; }
+    footer strong { color: var(--text); }
+
+    /* 휴대폰 하단 고정 버튼 */
+    .bottom-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 6px;
+      padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+      background: rgba(13, 13, 13, .94);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .bottom-bar a {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      height: 48px; border-radius: var(--radius); text-decoration: none; font-weight: 700; font-size: 15px;
+      background: var(--soft); color: var(--text); border: 1px solid #333;
+    }
+    .bottom-bar a.kakao { background: #fee500; border-color: #fee500; color: #3a1d1d; }
+    .bottom-bar a.primary { background: var(--cream); border-color: var(--cream); color: #0d0d0d; }
+
+    a:focus-visible, .btn:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* 아주 작은 화면 */
+    @media (max-width: 360px) {
+      .wrap { padding: 0 16px; }
+      .hero .btns { grid-template-columns: 1fr; }
+      .hero .btns .btn { min-height: 46px; }
+      h2 { font-size: 24px; }
+      .logo { font-size: 16px; }
+      .nav a { padding: 8px 5px; font-size: 13px; }
+      .director { grid-template-columns: 88px 1fr; }
+    }
+
+    /* 태블릿·PC */
+    @media (min-width: 768px) {
+      body { padding-bottom: 0; }
+      .bottom-bar { display: none; }
+      .hero { padding: 32px 0 72px; }
+      .hero .photo { aspect-ratio: 16 / 9; margin-bottom: 36px; }
+      .hero h1 { font-size: 54px; }
+      .hero .sub { font-size: 16px; }
+      .nav a { padding: 8px 12px; }
+      section { padding: 80px 0; }
+      h2 { font-size: 36px; }
+      .monthly { grid-template-columns: 1fr 1fr; align-items: center; gap: 36px; }
+      .grid3 { gap: 6px; }
+      .director { grid-template-columns: 160px 1fr; gap: 24px; }
+      .points { grid-template-columns: 1fr 1fr 1fr; }
+      .point { flex-direction: column; }
+      .channels { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn, .channel { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="wrap">
+      <a class="logo" href="#top">도담<span>.</span>네일</a>
+      <nav class="nav" aria-label="페이지 메뉴">
+        <a href="#monthly">디자인</a>
+        <a href="#menu">가격</a>
+        <a href="#booking">예약</a>
+        <a href="#location">오시는 길</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 히어로 -->
+    <div class="hero">
+      <div class="wrap">
+        <!-- 사진 1: images/hero.jpg (대표 디자인 손 클로즈업) -->
+        <div class="photo"><span>대표 디자인 사진</span></div>
+        <span class="badge">성수역 5분 · 1:1 프라이빗 네일</span>
+        <h1>인스타에서 본 그 디자인,<br>그대로 손끝에.</h1>
+        <p class="sub">8년 차 원장 박서연이 상담부터 아트까지 한&nbsp;분만 모십니다. 퇴근길에 조용히 들러 쉬어 가세요.</p>
+        <ul class="chips">
+          <li>평일 18:30까지 예약</li>
+          <li>한 타임 한 분</li>
+          <li>7일 무료 보수</li>
+        </ul>
+        <div class="btns">
+          <a class="btn primary" href="https://booking.naver.com/" target="_blank" rel="noopener">네이버로 바로 예약</a>
+          <a class="btn" href="https://pf.kakao.com/" target="_blank" rel="noopener">카톡으로 디자인 상담</a>
+        </div>
+        <p class="offer">첫 방문 손님 10% 할인</p>
+        <p class="hint">저장해 둔 디자인 캡처를 카톡으로 보내 주시면 가능 여부와 가격을 알려 드려요.</p>
+      </div>
+    </div>
+
+    <!-- 이달의 아트 -->
+    <section id="monthly">
+      <div class="wrap">
+        <p class="eyebrow">10월의 아트</p>
+        <div class="monthly">
+          <!-- 사진 2: images/monthly.jpg (이번 달 샘플 디자인) -->
+          <div class="photo r45"><span>이달의 아트 사진</span></div>
+          <div>
+            <h2>이번 달은 [디자인 이름]</h2>
+            <p>[한두 줄 디자인 설명]</p>
+            <p class="meta">65,000원 · 약 1시간 30분 · 기본 케어 포함</p>
+            <a class="btn primary" href="https://booking.naver.com/" target="_blank" rel="noopener">이 디자인으로 예약하기</a>
+            <p class="small">컬러 변경은 무료예요. 이달의 아트는 매달 1일에 바뀝니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 디자인 갤러리 -->
+    <section id="gallery">
+      <div class="wrap">
+        <p class="eyebrow">GALLERY</p>
+        <h2>어떤 분위기를 찾으세요?</h2>
+        <p class="lead">마음에 드는 사진을 저장해 두었다가 예약할 때 보내 주세요. 비슷한 느낌으로 상담해 드려요.</p>
+
+        <div class="mood">
+          <div class="mood-head"><h3>데일리·오피스</h3><span class="meta">45,000~55,000원 · 약 1시간</span></div>
+          <p>회사에서도 부담 없는 단정한 컬러.</p>
+          <!-- 사진 3–5: images/daily-1.jpg ~ daily-3.jpg -->
+          <div class="grid3">
+            <div class="photo"><span>원컬러</span></div>
+            <div class="photo"><span>누드톤</span></div>
+            <div class="photo"><span>프렌치</span></div>
+          </div>
+        </div>
+
+        <div class="mood">
+          <div class="mood-head"><h3>시즌·포인트</h3><span class="meta">55,000~65,000원 · 약 1시간 30분</span></div>
+          <p>계절 컬러와 한두 개 포인트 아트.</p>
+          <!-- 사진 6–8: images/season-1.jpg ~ season-3.jpg -->
+          <div class="grid3">
+            <div class="photo"><span>계절 컬러</span></div>
+            <div class="photo"><span>포인트 아트</span></div>
+            <div class="photo"><span>포인트 아트</span></div>
+          </div>
+        </div>
+
+        <div class="mood">
+          <div class="mood-head"><h3>아트·스페셜</h3><span class="meta">70,000원~ · 약 1시간 30분</span></div>
+          <p>약속이나 여행 전에 하는 화려한 디자인.</p>
+          <!-- 사진 9–11: images/art-1.jpg ~ art-3.jpg -->
+          <div class="grid3">
+            <div class="photo"><span>파츠·스톤</span></div>
+            <div class="photo"><span>아트</span></div>
+            <div class="photo"><span>아트</span></div>
+          </div>
+        </div>
+
+        <a class="more" href="https://www.instagram.com/" target="_blank" rel="noopener">더 많은 디자인은 인스타그램 @dodam_nail에서 보기 →</a>
+      </div>
+    </section>
+
+    <!-- 시술 메뉴 -->
+    <section id="menu">
+      <div class="wrap">
+        <p class="eyebrow">MENU &amp; PRICE</p>
+        <h2>가격과 소요 시간</h2>
+        <p class="lead">모든 가격은 부가세와 기본 케어를 포함한 금액이에요. 점심시간이나 퇴근 후 일정에 맞춰 골라 보세요.</p>
+
+        <div class="card menu-group">
+          <h3>핸드 젤 <span class="tag">인기</span></h3>
+          <ul class="menu-list">
+            <li><span class="name">원컬러 젤<span class="desc"><span class="time">약 1시간</span> · 기본 케어 포함</span></span><span class="price">45,000원</span></li>
+            <li><span class="name">그라데이션 · 프렌치<span class="desc"><span class="time">약 [ ]</span> · 기본 케어 포함</span></span><span class="price">55,000원</span></li>
+            <li><span class="name">이달의 아트<span class="desc"><span class="time">약 1시간 30분</span> · 매달 바뀌는 샘플 디자인</span></span><span class="price">65,000원</span></li>
+            <li><span class="name">자유 아트<span class="desc"><span class="time">약 1시간 30분</span> · 원하는 디자인 사진을 보내 주세요</span></span><span class="price">70,000원~</span></li>
+          </ul>
+        </div>
+
+        <div class="card menu-group">
+          <h3>풋 젤</h3>
+          <ul class="menu-list">
+            <li><span class="name">풋 원컬러 젤<span class="desc"><span class="time">약 1시간</span> · 기본 케어 포함</span></span><span class="price">55,000원</span></li>
+            <li><span class="name">풋 아트<span class="desc"><span class="time">약 1시간 30분</span> · 디자인 상담 후 확정</span></span><span class="price">65,000원~</span></li>
+          </ul>
+        </div>
+
+        <div class="card menu-group">
+          <h3>케어 · 기타</h3>
+          <ul class="menu-list">
+            <li><span class="name">손 케어 단독<span class="desc"><span class="time">약 30분</span> · 큐티클 정리 + 쉐입 + 영양</span></span><span class="price">25,000원</span></li>
+            <li><span class="name">젤 제거<span class="desc">타샵 제거 포함</span></span><span class="price">10,000원</span></li>
+            <li><span class="name">자샵 젤 제거<span class="desc">재시술 시</span></span><span class="price">무료</span></li>
+            <li><span class="name">연장 (1개)<span class="desc">팁 / 젤 연장</span></span><span class="price">5,000원</span></li>
+            <li><span class="name">파츠 · 스톤</span><span class="price">1,000원~</span></li>
+          </ul>
+        </div>
+
+        <ul class="note">
+          <li><strong>첫 방문 손님은 시술 금액에서 10% 할인해 드려요.</strong></li>
+          <li>시술 후 7일 이내 들뜸·깨짐은 무료로 보수해 드려요. (손톱 사용 중 파손 제외)</li>
+          <li>손톱 상태에 따라 시술 시간과 가격이 달라질 수 있어요.</li>
+          <li>타샵 젤 제거가 필요하면 예약할 때 미리 알려 주세요.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 샵 소개 -->
+    <section id="about">
+      <div class="wrap">
+        <p class="eyebrow">ABOUT</p>
+        <h2>혼자라서 더 꼼꼼하게</h2>
+        <div class="director">
+          <!-- 사진 12: images/director.jpg (원장이 시술하는 손) -->
+          <div class="photo r45"><span>시술하는 손 사진</span></div>
+          <p>안녕하세요, 도담 네일 원장 박서연입니다. 8년 동안 손님들의 손을 만져 왔어요. 한 번 뵌 손님의 손은 다음 방문 때도 기억합니다.</p>
+        </div>
+        <!-- 사진 13: images/interior.jpg (1인 시술대가 있는 샵 내부) -->
+        <div class="photo r32"><span>샵 내부 사진</span></div>
+        <div class="points">
+          <div class="point">
+            <div class="ico" aria-hidden="true">01</div>
+            <div>
+              <h3>처음부터 끝까지 원장 1인 시술</h3>
+              <p>상담, 케어, 아트까지 같은 손이 책임져요.</p>
+            </div>
+          </div>
+          <div class="point">
+            <div class="ico" aria-hidden="true">02</div>
+            <div>
+              <h3>한 타임 한 분, 기다림 없는 프라이빗 공간</h3>
+              <p>다른 손님과 마주칠 일 없이 편하게 쉬다 가세요.</p>
+            </div>
+          </div>
+          <div class="point">
+            <div class="ico" aria-hidden="true">03</div>
+            <div>
+              <h3>손톱 건강과 위생 먼저</h3>
+              <p>도구는 손님마다 소독하고 소모품은 1회만 써요. 무리하게 갈아내지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+        <p class="origin">‘도담’은 어린아이가 탈 없이 잘 자라는 모양을 뜻하는 순우리말이에요. 손톱도, 손님의 하루도 건강하고 예쁘게 자라길 바라는 마음으로 성수동 골목에 작은 샵을 열었습니다.</p>
+      </div>
+    </section>
+
+    <!-- 예약 방법 -->
+    <section id="booking">
+      <div class="wrap">
+        <p class="eyebrow">RESERVATION</p>
+        <h2>예약은 이렇게 해 주세요</h2>
+        <p class="lead">100% 예약제예요. 시술 중엔 전화를 받기 어려워서 네이버 예약이 가장 빨라요.</p>
+
+        <ol class="steps">
+          <li><div><h3>날짜와 시간 고르기</h3><p>네이버 예약에서 남은 시간을 바로 확인할 수 있어요.</p></div></li>
+          <li><div><h3>원하는 디자인 보내기</h3><p>인스타에서 저장한 디자인 캡처를 카톡으로 보내 주세요.</p></div></li>
+          <li><div><h3>예약 확정 안내 받기</h3><p>확정 메시지를 받으면 예약 완료! 방문 전날 한 번 더 알려 드려요.</p></div></li>
+        </ol>
+
+        <div class="channels">
+          <a class="channel" href="https://booking.naver.com/" target="_blank" rel="noopener">
+            <span class="ico naver" aria-hidden="true">N</span>
+            <span><strong>네이버 예약</strong><small>실시간 예약 · 가장 추천해요</small></span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+          <a class="channel" href="https://pf.kakao.com/" target="_blank" rel="noopener">
+            <span class="ico kakao" aria-hidden="true">톡</span>
+            <span><strong>카카오톡 채널</strong><small>‘도담네일’ 검색 · 디자인 상담</small></span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+        </div>
+
+        <details class="policy">
+          <summary>예약 전 확인해 주세요</summary>
+          <ul class="note">
+            <li>예약 시간 10분 이상 늦으시면 시술 내용이 바뀌거나 예약이 취소될 수 있어요.</li>
+            <li>예약 변경·취소는 방문 하루 전까지 연락 부탁드려요.</li>
+            <li>당일 취소나 연락 없는 불참이 반복되면 이후 예약이 어려울 수 있어요.</li>
+            <li>1인 샵이라 동반 1인 이상 방문은 어려워요. 양해 부탁드립니다.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- 오시는 길 -->
+    <section id="location">
+      <div class="wrap">
+        <p class="eyebrow">LOCATION</p>
+        <h2>성수역 3번 출구에서 5분</h2>
+
+        <div class="card">
+          <!-- 사진 14: images/entrance.jpg (건물 입구와 계단, 1층 카페 간판) -->
+          <div class="photo r32 entrance"><span>건물 입구 사진</span></div>
+          <p class="caption">1층 카페 옆 계단으로 올라오세요.</p>
+          <dl class="info">
+            <div>
+              <dt>주소</dt>
+              <dd>서울 성동구 성수동2가 ○○길 00, 2층</dd>
+            </div>
+            <div>
+              <dt>지하철</dt>
+              <dd>2호선 성수역 3번 출구 도보 약 5분</dd>
+            </div>
+            <div>
+              <dt>주차</dt>
+              <dd>전용 주차장이 없어요<small>근처 공영주차장을 이용해 주세요</small></dd>
+            </div>
+            <div>
+              <dt>영업시간</dt>
+              <dd>화–토 11:00 – 20:00<small>마지막 예약 18:30 (퇴근 후 방문 가능)</small></dd>
+            </div>
+            <div>
+              <dt>휴무</dt>
+              <dd>매주 일·월요일<small>임시 휴무는 인스타그램으로 알려 드려요</small></dd>
+            </div>
+          </dl>
+          <div class="map-btns">
+            <a class="btn" href="https://map.naver.com/p/search/%EC%84%B1%EC%88%98%EB%8F%99%20%EB%8F%84%EB%8B%B4%EB%84%A4%EC%9D%BC" target="_blank" rel="noopener">네이버 지도</a>
+            <a class="btn" href="https://map.kakao.com/?q=%EC%84%B1%EC%88%98%EB%8F%99%20%EB%8F%84%EB%8B%B4%EB%84%A4%EC%9D%BC" target="_blank" rel="noopener">카카오맵</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 자주 묻는 질문 -->
+    <section id="faq">
+      <div class="wrap">
+        <p class="eyebrow">FAQ</p>
+        <h2>자주 묻는 질문</h2>
+
+        <div class="faq-list">
+          <details>
+            <summary>인스타에서 본 다른 샵 디자인도 해 주시나요?</summary>
+            <p>네, 사진을 보내 주시면 가능 여부와 가격을 미리 알려 드려요.</p>
+          </details>
+          <details>
+            <summary>점심시간에 받을 수 있나요?</summary>
+            <p>원컬러는 약 1시간, 케어만 받으시면 약 30분이에요. 원하시는 시간을 카톡으로 물어봐 주세요.</p>
+          </details>
+          <details>
+            <summary>첫 방문 할인은 어떻게 받나요?</summary>
+            <p>예약할 때 “첫 방문”이라고 남겨 주시면 시술 금액에서 10% 빼 드려요.</p>
+          </details>
+          <details>
+            <summary>타샵 젤을 하고 있어요.</summary>
+            <p>제거 비용은 10,000원이에요. 예약할 때 미리 알려 주세요.</p>
+          </details>
+          <details>
+            <summary>친구랑 같이 가도 되나요?</summary>
+            <p>1인 샵이라 동반 방문은 어려워요. 양해 부탁드립니다.</p>
+          </details>
+          <details>
+            <summary>주차되나요?</summary>
+            <p>전용 주차장은 없어요. 근처 공영주차장을 이용해 주세요.</p>
+          </details>
+        </div>
+
+        <h3>다른 궁금한 점은 편한 방법으로 물어봐 주세요</h3>
+        <p class="lead contact-lead">시술 중에는 답장이 조금 늦을 수 있어요.</p>
+        <div class="channels">
+          <a class="channel" href="https://pf.kakao.com/" target="_blank" rel="noopener">
+            <span class="ico kakao" aria-hidden="true">톡</span>
+            <span><strong>카카오톡 채널</strong><small>가장 빠르게 답장 드려요</small></span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+          <a class="channel" href="sms:010-0000-0000">
+            <span class="ico tel" aria-hidden="true">문자</span>
+            <span><strong>문자 보내기</strong><small>시술 중에도 확인 가능해요</small></span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+          <a class="channel" href="tel:010-0000-0000">
+            <span class="ico tel" aria-hidden="true">전화</span>
+            <span><strong>010-0000-0000</strong><small>영업시간 내 통화 가능</small></span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+          <a class="channel" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <span class="ico insta" aria-hidden="true">IG</span>
+            <span><strong>인스타그램</strong><small>@dodam_nail · 디자인 · 휴무 공지</small></span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>도담 네일</strong> · 성수동 1인 네일샵</p>
+      <p>서울 성동구 성수동2가 ○○길 00, 2층 · <a href="tel:010-0000-0000">010-0000-0000</a></p>
+      <p>© 2026 도담 네일</p>
+    </div>
+  </footer>
+
+  <!-- 휴대폰 하단 고정 버튼 -->
+  <nav class="bottom-bar" aria-label="빠른 연락">
+    <a class="kakao" href="https://pf.kakao.com/" target="_blank" rel="noopener">카톡 상담</a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener">인스타</a>
+    <a class="primary" href="https://booking.naver.com/" target="_blank" rel="noopener">네이버 예약</a>
+  </nav>
+
+</body>
+</html>
